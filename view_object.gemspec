@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = ViewObject::VERSION
   s.authors     = ["kawaoka"]
   s.email       = ["br2jn51@yahoo.co.jp"]
-  s.homepage    = "http://riveroka.com"
+  s.homepage    = "https://github.com/kawoka/view_object"
   s.summary     = "ViewObject."
   s.description = "Description of ViewObject."
   s.license     = "MIT"
@@ -17,7 +17,11 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 4.2.7.1"
+  s.add_dependency 'activesupport', '>= 3.0.0'
+  s.add_dependency 'actionpack', '>= 3.0.0'
+  s.add_development_dependency 'bundler', '>= 1.0.0'
+  s.add_development_dependency 'rake', '>= 0'
+  s.add_development_dependency 'tzinfo', '>= 0'
+  s.add_development_dependency 'rspec', '>= 0'
 
-  s.add_development_dependency "sqlite3"
 end
