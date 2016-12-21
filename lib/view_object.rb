@@ -1,5 +1,10 @@
-require "view_object/version"
+require 'active_support/dependencies'
 
 module ViewObject
-  # Your code goes here...
 end
+
+require 'view_object/config'
+require 'view_object/engin'
+require 'view_object/dispatcher'
+require 'rails'
+
