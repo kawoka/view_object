@@ -1,6 +1,7 @@
 require 'active_support/dependencies'
 
 module ViewObject
+  puts 'load view object!!!!!!!!!!!!!!!!!!!=================================='
 end
 
 require 'view_object/config'
