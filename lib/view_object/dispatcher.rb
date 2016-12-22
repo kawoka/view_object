@@ -32,9 +32,7 @@ module ViewObject
 
     def self.vo_class_name(controller)
       paths = controller.params[:controller] + '/' + controller.params[:action]
-      ret = paths.split('/').inject do | path, p |
-        path.camelcase + '::' + p.camelcase
-      end
+      ret = paths.split('/').map { | path | path.camelcase }.join('::')
       ret += 'ViewObject'
       ret
     end
