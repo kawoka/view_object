@@ -11,11 +11,23 @@ module ViewObject
     end
 
     def self.make_view_object(controller)
+
       name = vo_class_name(controller)
-      vo = ActiveSupport::Dependencies.constantize(name)
-      vo.new(
-        controller: controller
+      vo_class = ActiveSupport::Dependencies.constantize(name)
+      vo = vo_class.new
+
+      vo.instance_variable_set(
+        :@controller,
+        controller
       )
+
+      #do callback
+      if vo.respond_to?(:after_dispatch)
+        vo.after_initalize
+      end
+
+      vo
+
     end
 
     def self.vo_class_name(controller)
@@ -30,3 +42,4 @@ module ViewObject
   end
 
 end
+
