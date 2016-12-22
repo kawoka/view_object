@@ -22,7 +22,7 @@ module ViewObject
       )
 
       #do callback
-      if vo.respond_to?(:after_dispatch)
+      if vo.respond_to?(:after_initalize)
         vo.after_initalize
       end
 
