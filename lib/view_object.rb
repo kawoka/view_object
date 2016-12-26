@@ -13,7 +13,11 @@ module ViewObject
   end
 
   def before_render(controller)
-    Dispatcher.before_render
+    # Dispatcher.before_render
+    vo = controller.instance_variable_get(:@view_object)
+    return if vo.blank?
+    return unless vo.respond_to?(:before_render)
+    vo.send(:before_render)
   end
 
   def render_with_before_render(*options, &block)

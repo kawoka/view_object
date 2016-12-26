@@ -4,22 +4,11 @@ module ViewObject
 
     # @brief : Route毎にViewObjectをControllerとViewにDispatchする
     def self.dispatch_view_object(controller)
-      @view_object = make_view_object(controller)
+      vo = make_view_object(controller)
       controller.instance_variable_set(
         :@view_object,
-        @view_object
+        vo
       )
-    end
-
-    def self.callback method
-      return if @view_object.blank?
-      return unless @view_object.respond_to?(method)
-
-      @view_object.send(method)
-    end
-
-    def self.before_render
-      callback 'before_render'
     end
 
     def self.make_view_object(controller)
