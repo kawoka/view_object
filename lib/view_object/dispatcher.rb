@@ -31,7 +31,12 @@ module ViewObject
     end
 
     def self.vo_class_name(controller)
-      paths = controller.params[:controller] + '/' + controller.params[:action]
+      route_path = ViewObject.config.routes_path
+
+      if route_path.present? && route_path.last != '/'
+        route_path += '/'
+      end
+      paths = route_path + controller.params[:controller] + '/' + controller.params[:action]
       ret = paths.split('/').map { | path | path.camelcase }.join('::')
       ret += 'ViewObject'
       ret
