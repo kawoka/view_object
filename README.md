@@ -22,7 +22,10 @@ Or install it yourself as:
 
 controller
 ```
-  include ViewObject
+  class HogeController
+    include ViewObject
+    attr_reader :hoge # view objectで参照する変数はreaderに指定してください
+  end
 ```
 
 ## Development
