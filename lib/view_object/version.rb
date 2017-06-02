@@ -1,3 +1,3 @@
 module ViewObject
-  VERSION = "0.1.9.1"
+  VERSION = "0.2.0"
 end

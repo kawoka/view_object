@@ -21,7 +21,7 @@ Or install it yourself as:
 ## Usage
 
 controller
-```
+```ruby
   class HogeController
     include ViewObject
     attr_reader :hoge # view objectで参照する変数はreaderに指定してください

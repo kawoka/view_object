@@ -5,6 +5,7 @@ require "view_object/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
+
   s.name        = "view_object"
   s.version     = ViewObject::VERSION
   s.authors     = ["kawaoka"]
@@ -23,5 +24,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake', '>= 0'
   s.add_development_dependency 'tzinfo', '>= 0'
   s.add_development_dependency 'rspec', '>= 0'
-
+  s.add_development_dependency 'rspec-rails', '>= 0'
+  s.add_development_dependency 'rails', '= 4.2.5'
+  s.add_development_dependency 'sqlite3', '>= 0'
+  s.add_development_dependency 'pry-rails', '>= 0'
 end

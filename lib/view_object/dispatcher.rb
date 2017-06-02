@@ -1,7 +1,5 @@
 module ViewObject
-
   class Dispatcher
-
     # @brief : Route毎にViewObjectをControllerとViewにDispatchする
     def self.dispatch_view_object(controller)
       vo = make_view_object(controller)
@@ -12,7 +10,6 @@ module ViewObject
     end
 
     def self.make_view_object(controller)
-
       name = vo_class_name(controller)
       vo_class = ActiveSupport::Dependencies.constantize(name)
       vo = vo_class.new
@@ -26,9 +23,7 @@ module ViewObject
       if vo.respond_to?(:after_initialize)
         vo.after_initialize
       end
-
       vo
-
     end
 
     def self.vo_class_name(controller)
@@ -37,13 +32,11 @@ module ViewObject
       if route_path.present? && route_path.last != '/'
         route_path += '/'
       end
+
       paths = route_path + controller.params[:controller] + '/' + controller.params[:action]
       ret = paths.split('/').map { | path | path.camelcase }.join('::')
       ret += 'ViewObject'
       ret
     end
-
   end
-
 end
-
