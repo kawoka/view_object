@@ -9,9 +9,8 @@ module ViewObject
 
   def dispatch_view_object(controller)
     action = controller.params[:action].to_s
-    klass = controller.class
-    return unless klass.view_object_only?(action)
-    return if klass.view_object_ignore?(action)
+    return unless controller.class.view_object_only?(action)
+    return if controller.class.view_object_ignore?(action)
     # dispatch actions
     Dispatcher.dispatch_view_object(controller)
   end
